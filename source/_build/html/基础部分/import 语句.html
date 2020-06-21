@@ -89,10 +89,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../从这里开始/index.html">从这里开始</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">基础部分</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="基础语法.html">1. 基础介绍</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2. import 语句</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2. import 语句</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">2.1. 函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">2.2. import</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">2.3. 总结</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="文件读写.html">3. 文件读写</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../示例/index.html">示例</a></li>
 </ul>
 
             
@@ -154,6 +160,138 @@
             
   <div class="section" id="import">
 <h1><span class="section-number">2. </span>import 语句<a class="headerlink" href="#import" title="永久链接至标题">¶</a></h1>
+<p>Python 是一门动态语言，意味着你定义变量的时候不必预先确定它的类型。</p>
+<p>同时在运行过程中可以导入其他文件中的代码，这意味着你可以在使用前的任意位置来导入函数。
+但是为了增强可读性和移植性，建议所有的导入写在文件开头方便检查。</p>
+<p>import 可以从别的文件中导入函数。</p>
+<div class="section" id="id1">
+<h2><span class="section-number">2.1. </span>函数<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>首先明确函数的概念，一些常用的代码我们可以把它们封装起来，方便使用。</p>
+<p>如下的函数把一个没有单位的数字保留两位小数并添加单位 ms（毫秒）。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">time_without_unit</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">time_without_unit</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ms&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>我的一段代码中需要输出一些时间，不使用函数的代码如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">clock_time</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># do something...</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">time_without_unit</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ms&#39;</span><span class="p">)</span>
+<span class="c1"># do something...</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">time_without_unit</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ms&#39;</span><span class="p">)</span>
+<span class="c1"># do something...</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">time_without_unit</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ms&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>使用函数的代码如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_with_unit</span><span class="p">(</span><span class="n">time_without_unit</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">time_without_unit</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ms&#39;</span><span class="p">)</span>
+
+<span class="n">clock_time</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># do something...</span>
+<span class="n">print_with_unit</span><span class="p">(</span><span class="n">clock_time</span><span class="p">)</span>
+<span class="c1"># do something...</span>
+<span class="n">print_with_unit</span><span class="p">(</span><span class="n">clock_time</span><span class="p">)</span>
+<span class="c1"># do something...</span>
+<span class="n">print_with_unit</span><span class="p">(</span><span class="n">clock_time</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>显然，函数封装后可以提高代码的可读性，减少代码量。
+并且其他文件中有需求的话不用重复编写，直接导入就可以了。</p>
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number">2.2. </span>import<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>假设在 Code 文件夹下有两个文件，lib.py 和 run.py。</p>
+<p>./ Code
+<span class="raw-html"><br /></span>
+- lib.py
+<span class="raw-html"><br /></span>
+- run.py
+<span class="raw-html"><br /></span></p>
+<p>lib.py:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_with_unit</span><span class="p">(</span><span class="n">time_without_unit</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">time_without_unit</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ms&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>run.py:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lib</span>
+
+<span class="n">time_num</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">do something</span>
+<span class="sd">time_num += 5</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="n">lib</span><span class="o">.</span><span class="n">print_with_unit</span><span class="p">(</span><span class="n">time_num</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>在 run.py 中导入了 lib.py 中的函数，使用的时候 <code class="docutils literal notranslate"><span class="pre">lib.print_with_unit(time_num)</span></code> 表明
+使用的是 lib.py 中的 <code class="docutils literal notranslate"><span class="pre">print_with_unit</span></code> 函数。这样不同的包/模块中可以使用相同的函数名，调用的
+时候加上来源表明使用的哪个函数。</p>
+<p>另一种写法：
+<span class="raw-html"><br /></span>
+run.py:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lib</span> <span class="kn">import</span> <span class="n">print_with_unit</span>
+
+<span class="n">time_num</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">do something</span>
+<span class="sd">time_num += 5</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="n">print_with_unit</span><span class="p">(</span><span class="n">time_num</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>这种写法把  <code class="docutils literal notranslate"><span class="pre">print_with_unit</span></code> 函数导入了 run.py 中，
+使用的时候不用声明来源，但是要注意函数命名冲突。这种写法和下面的等效:</p>
+<p>run.py:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lib</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">time_num</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">do something</span>
+<span class="sd">time_num += 5</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="n">print_with_unit</span><span class="p">(</span><span class="n">time_num</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>这个 <code class="docutils literal notranslate"><span class="pre">*</span></code> 是导入了 lib.py 中的所有函数，使用起来和上一种一样。同样要注意函数命名的冲突问题。
+而如果 lib.py 中函数特别多的时候，使用 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">lib</span> <span class="pre">import</span> <span class="pre">*</span></code> 导入全部函数可能会比较慢，
+如果只使用其中的几个函数的话就用 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">lib</span> <span class="pre">import</span> <span class="pre">print_with_unit</span></code> 来导入需要的函数就会快一些。</p>
+<p>以 Numpy 的导入为例:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">Numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+<p>意思就是把 Numpy 导入进来，改个名字叫 np，这样写起来干净利索些。
+调用函数的话就直接 <code class="docutils literal notranslate"><span class="pre">np.loadtxt()</span></code> 这样即可。</p>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">2.3. </span>总结<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>总而言之，建议使用</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">Numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+</pre></div>
+</div>
+<p>这种写法，可以避免一些潜在的命名冲突。</p>
+<p>如果只用某个模块中的一个函数，可以使用</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lib</span> <span class="kn">import</span> <span class="n">print_with_unit</span>
+</pre></div>
+</div>
+<p>这种。</p>
+<p>而 Matplotlib 比较特殊一些，由于使用习惯的问题大家都写成 <a href="#id4"><span class="problematic" id="id5">``</span></a>from import * `` 的格式，所以就沿用下来了。</p>
+</div>
 </div>
 
 

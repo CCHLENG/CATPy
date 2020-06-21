@@ -16,3 +16,4 @@ Welcome to CCAT Python's documentation!
 
    从这里开始/index
    基础部分/index
+   示例/index
