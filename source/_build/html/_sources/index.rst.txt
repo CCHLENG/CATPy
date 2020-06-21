@@ -6,6 +6,7 @@
 Welcome to CCAT Python's documentation!
 =======================================
 
+这是一个 Python 入门教程，目标是让你快速的掌握 Python 基础并写出能解决你实际问题的脚本。
 
 目录:
 ^^^^^
@@ -14,3 +15,4 @@ Welcome to CCAT Python's documentation!
    :glob:
 
    从这里开始/index
+   基础部分/index

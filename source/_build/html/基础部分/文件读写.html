@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>从这里开始 &mdash; CCAT Python  文档</title>
+  <title>3. 文件读写 &mdash; CCAT Python  文档</title>
   
 
   
@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="prev" title="Welcome to CCAT Python’s documentation!" href="../index.html" /> 
+    <link rel="prev" title="2. 基础语法" href="import 语句.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,8 +85,11 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">从这里开始</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">基本学习路线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../从这里开始/index.html">从这里开始</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">基础部分</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="基础语法.html">1. 基础介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="import 语句.html">2. 基础语法</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3. 文件读写</a></li>
 </ul>
 </li>
 </ul>
@@ -134,7 +137,9 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>从这里开始</li>
+          <li><a href="index.html">基础部分</a> &raquo;</li>
+        
+      <li><span class="section-number">3. </span>文件读写</li>
     
     
 
@@ -147,108 +152,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>从这里开始<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<p>Python 是一门广泛使用的编程语言，语法简单，入门快速；动态类型，易于学习。</p>
-<p>我们学习 Python 是一种手段而不是目的，目的是解决我们科研中的问题。<span class="strike">虽然学习 Python 成为一个 996 的码农也不失为一个好的选择</span>。</p>
-<p>本文档会带你解决一些实际问题，让你学习解决问题的思路，最终写出自己的代码。</p>
-<div class="section" id="id2">
-<h2>基本学习路线<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<ul class="simple">
-<li><dl class="simple">
-<dt>基础</dt><dd><ul>
-<li><dl class="simple">
-<dt>了解数据类型和基本语法：</dt><dd><p>知道常用的 List，Tuple 以及 Dictionary</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>掌握分支、循环结构的语法：</dt><dd><ul>
-<li><p>for / while</p></li>
-<li><p>if / else</p></li>
-<li><p>多层 if / else 的写法</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>学会调用其他 .py 文件中的函数：</dt><dd><ul>
-<li><p>import 语句的使用</p></li>
-<li><p>会调用自己写的 .py 文件中的函数</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>内置函数进行文件读写</dt><dd><ul>
-<li><dl class="simple">
-<dt>txt 的读写，了解不同打开模式</dt><dd><ul>
-<li><p>如: open(‘demo.txt’, ‘a’)</p></li>
-<li><p>其中的 ‘a’ 为追加模式</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p>使用 with 语句来自动关闭文件</p></li>
-<li><p>Pandas 模块可以帮助你读写一些包含汉字/英文的较复杂的csv / txt</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">注解</p>
-<p>非必要情况不建议使用 excel 的 xsl 格式读取/保存数据。
-如需要在 Excel 中画图等，请在 Python 中保存为 csv 格式之后另存为 xsl。</p>
-</div>
-<ul class="simple">
-<li><dl class="simple">
-<dt>科学计算</dt><dd><ul>
-<li><p>Numpy 及 Scipy 模块</p></li>
-<li><p>中间结果使用 *.npy 格式保存，可以加速读写</p></li>
-<li><p>Numpy 有内置的函数 savetxt 和 loadtxt 来读写 txt 文件</p></li>
-<li><p>具体的函数现用现查即可</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>绘图</dt><dd><ul>
-<li><p>使用 Matplotlib</p></li>
-<li><p>学会参考官网的画廊</p></li>
-<li><p>常用的操作可以自己封装成函数，直接调用，减小代码量，提高可读性</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>图像处理</dt><dd><ul>
-<li><p>使用 OpenCV - Python</p></li>
-<li><p>注意版本，实验室现有的一些脚本使用的是 3.x.x 版本的包，最新的为 4.x.x，其中有一些函数不一致，需要手动修改。</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>网络通信</dt><dd><ul>
-<li><p>内置的 Socket 包收发信息，Struct 解码。</p></li>
-<li><p>了解 TCP，UDP 大概的原理，学会用 Wireshark 抓包调试。</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>嵌入式硬件开发</dt><dd><ul>
-<li><p>Pyserial 控制串口</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</div>
+<h1><span class="section-number">3. </span>文件读写<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 </div>
 
 
@@ -260,7 +164,7 @@
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to CCAT Python’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="import 语句.html" class="btn btn-neutral float-left" title="2. 基础语法" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
