@@ -60,3 +60,7 @@ html_static_path = ['_static']
 
 html_logo = './_static/logo.png'
 html_show_sourcelink = False
+
+html_css_files = [
+    'css/custom.css',
+]
