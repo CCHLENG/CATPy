@@ -171,4 +171,4 @@ run.py:
 
 这种。
 
-而 Matplotlib 比较特殊一些，由于使用习惯的问题大家都写成 ``from import * `` 的格式，所以就沿用下来了。
+而 Matplotlib 比较特殊一些，由于使用习惯的问题大家都写成 ``from import *`` 的格式，所以就沿用下来了。
